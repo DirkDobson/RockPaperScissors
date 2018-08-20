@@ -3,7 +3,10 @@
 // 0..2 would be one of the game things
 // for each possiblity compare UserChoice  and ComputerChoice using if statment to see winneer 
 
-
+var us = document.getElementById('you') 
+var cs = document.getElementById('computer')
+var te = document.getElementById('tie')
+var dd = document.getElementById('other')
 
 
 var rock = document.getElementById('Rock');
@@ -15,12 +18,17 @@ var userScore = 0
 var computerScore = 0
 var tie = 0
 
+
 rock.addEventListener('click', function() {
-  UserChoice = 'rock'
+  userChoice = 'rock'
   computerChoice = Math.floor(Math.random() * 3)
   cToS()
-  counter()
-  console.log(UserChoice)
+  counter(userChoice,computerChoice)
+  us.innerHTML = userScore
+  cs.innerHTML = computerScore
+  te.innerHTML = tie
+  dd.innerHTML = computerChoice
+  console.log(userChoice)
   console.log(computerChoice)
   console.log(userScore)
   console.log(computerScore)
@@ -28,10 +36,16 @@ rock.addEventListener('click', function() {
 })
 
 paper.addEventListener('click', function() {
-  UserChoice = 'paper'
+  userChoice = 'paper'
   computerChoice = Math.floor(Math.random() * 3)
   cToS()
-  counter()
+  counter(userChoice, computerChoice)
+  us.innerHTML = userScore
+  cs.innerHTML = computerScore
+  te.innerHTML = tie
+  dd.innerHTML = computerChoice
+  console.log(userChoice)
+  console.log(computerChoice)
   console.log(userScore)
   console.log(computerScore)
   console.log(tie)
@@ -39,10 +53,16 @@ paper.addEventListener('click', function() {
   })
 
   scissors.addEventListener('click', function() {
-    UserChoice = 'scissors'
+    userChoice = 'scissors'
     computerChoice = Math.floor(Math.random() * 3)
     cToS()
-    counter()
+    counter(userChoice, computerChoice)
+    us.innerHTML = userScore
+    cs.innerHTML = computerScore
+    te.innerHTML = tie
+    dd.innerHTML = computerChoice
+    console.log(userChoice)
+    console.log(computerChoice)
     console.log(userScore)
     console.log(computerScore)
     console.log(tie)
@@ -75,25 +95,34 @@ function cToS() {
 
 
 
-function counter() {
+function counter(userChoice, computerChoice) {
+  
   if (userChoice === 'rock' && computerChoice === 'rock') {
-   return ++tie
+   return tie = ++tie
+  
   } else if (userChoice === 'paper' && computerChoice === 'rock') {
-    return ++userScore
+    return userScore = ++userScore
+   
   } else if (userChoice === 'scissors' && computerChoice === 'rock') {
-    return ++computerScore
+    return computerScore = ++computerScore
+  
   } else if (userChoice === 'rock' && computerChoice === 'paper') {
-    return ++computerScore
+    return computerScore = ++computerScore
+  
   } else if (userChoice === 'paper' && computerChoice === 'paper') {
-    return ++tie
+    return tie = ++tie
+   
   } else if (userChoice === 'scissors' && computerChoice === 'paper') {
-    return ++userChoice
+    return userScore = ++userScore
+   
   } else if (userChoice === 'rock' && computerChoice === 'scissors') {
-    return ++userChoice
+    return userScore = ++userScore
+  
   } else if (userChoice === 'paper' && computerChoice === 'scissors') {
-    return ++computerScore
+    return computerScore = ++computerScore
+  
   } else if (userChoice === 'scissors' && computerChoice === 'scissors') {
-    return ++tie
+    return tie = ++tie
   } 
 } 
   
